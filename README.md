@@ -7,10 +7,10 @@ Variant 1, task 2<br/><br/>
     $ python3 -i humanize-calculator/main.py
 <br/><br/>
 ### Convert arithmetic expression into word.
-    >>> humanize(arithmetic_expression[, is_solve_regex=False])
-**arithmetic_expression** - your expression, can including only digits and arithmetic operands. Must contain one symbol "=". You must to place digits and operands on both sides of symbol "=". If flag is_solve_regex declared as true, characters are needed only on the left side.
+    >>> humanize(arithmetic_expression[, is_solve_expression=False])
+**arithmetic_expression** - your expression, can including only digits and arithmetic operands. Must contain one symbol "=". You must to place digits and operands on both sides of symbol "=". If flag is_solve_expression declared as true, characters are needed only on the left side.
 
-**is_solve_regex** - If this flag is declared as true, the expression will be solved.
+**is_solve_expression** - If this flag is declared as true, the expression will be solved.
 <br/><br/>
 ### "humanize" your chunk.
     >>> humanize_chunk(chunk)
