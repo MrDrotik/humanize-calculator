@@ -6,7 +6,7 @@ from latin_assembler import number_name_assemble
 
 accepted_char_names = (' plus', ' minus', ' multiply by', ' divide by', ' equals')
 accepted_chars = ('+', '-', '*', '/', '=')
-accepted_digits = tuple(map(str, range(0, 10)))
+accepted_digits = tuple(map(str, range(10)))
 skipped_chars = (' ', '\n', '\t', '\r')
 
 digit_name_map = ((
