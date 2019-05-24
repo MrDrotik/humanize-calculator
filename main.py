@@ -1,5 +1,5 @@
 
-from latin_assembler import number_name_assemble
+from latin_assembler import assemble_number_name
 
 # Надеюсь мой код будет легко читать. Я оставил комментарии в
 # потенциально сложных для понимания местах.
@@ -50,7 +50,7 @@ def expression_validate(input_str,
     return True
 
 
-def chunk_humanizer(input_str):
+def humanize_chunk(input_str):
 
     out_str = ''
 
@@ -87,7 +87,7 @@ def chunk_humanizer(input_str):
                 if next_digits_sum > 0 and bit_depth > 1:
                     # Отнимаю единицу потому что в bit_depth указана длина
                     # числа, а в таблице степень десяти.
-                    out_str = ' ' + number_name_assemble(bit_depth - 1) + out_str
+                    out_str = ' ' + assemble_number_name(bit_depth - 1) + out_str
 
             if next_digit == 1:
                 out_str = digit_name_map[1][digit] + out_str
@@ -109,7 +109,7 @@ def chunk_humanizer(input_str):
             if bit_depth == 3 and out_str.rstrip():
                 out_str = connection_word + out_str
             if digit > 0:
-                out_str = number_name_assemble(2) + out_str
+                out_str = assemble_number_name(2) + out_str
                 out_str = digit_name_map[0][digit] + ' ' + out_str
 
         previous_digit = digit
@@ -141,9 +141,9 @@ def humanize(input_string, is_solve_expression=False):
         if element == accepted_chars[4] and is_solve_expression:
             splitted_str = input_string.split(accepted_chars[4])
             exp_solve = eval(splitted_str[0])
-            exp_solve = chunk_humanizer(str(exp_solve))
+            exp_solve = humanize_chunk(str(exp_solve))
             out_str = out_str + accepted_char_names[4] + exp_solve
             return out_str.strip()
         if element:
-            out_str += chunk_humanizer(element)
+            out_str += humanize_chunk(element)
     return out_str.strip()

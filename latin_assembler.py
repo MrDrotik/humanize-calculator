@@ -27,7 +27,7 @@ latin_thousands_name = (
 )
 
 
-def number_name_assemble(count_of_zeros):
+def assemble_number_name(count_of_zeros):
     
     if count_of_zeros in unique_numbers:
         return unique_numbers[count_of_zeros]
