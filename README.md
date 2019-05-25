@@ -6,9 +6,9 @@ Variant 1, task 2<br/><br/>
 ## Run pytest:
     $ pytest -v --pdb humanize-calculator/
 ## Run app:
-    $ python3 run.py [-s] your_expression
+    $ python3 humanize-calculator/run.py [-s] your_expression
 ### or
-    $ python3 run.py [-s]
+    $ python3 humanize-calculator/run.py [-s]
 If you write argument "-s" (also "--solve"), expression has been solved.
 <br/><br/><br/>
 ## Also you can run functions directly
