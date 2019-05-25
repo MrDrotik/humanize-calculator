@@ -34,23 +34,23 @@ expressions = [
 ]
 
 
-class TestHumanize:
+def test_not_accepted_cars():
+	assert humanize('asdf=sdf') == 'invalid input'
+	assert humanize('5+6=dd21') == 'invalid input'
+	assert humanize('') == 'invalid input'
+	assert humanize('21=') == 'invalid input'
+	assert humanize('21=') == 'invalid input'
 
-    def test_not_accepted_cars(self):
-        assert humanize('asdf=sdf') == 'invalid input'
-        assert humanize('5+6=dd21') == 'invalid input'
-        assert humanize('') == 'invalid input'
-        assert humanize('21=') == 'invalid input'
-        assert humanize('21=') == 'invalid input'
+	
+def test_wrong_type():
+	assert humanize(object) == 'invalid input'
+	assert humanize(lambda x: x ** 2) == 'invalid input'
+	assert humanize(12.21) == 'invalid input'
+	assert humanize(12) == 'invalid input'
+	assert humanize([1, 2, 3, 4]) == 'invalid input'
+	assert humanize(('a', 'b')) == 'invalid input'
 
-    def test_wrong_type(self):
-        assert humanize(self) == 'invalid input'
-        assert humanize(lambda x: x ** 2) == 'invalid input'
-        assert humanize(12.21) == 'invalid input'
-        assert humanize(12) == 'invalid input'
-        assert humanize([1, 2, 3, 4]) == 'invalid input'
-        assert humanize(('a', 'b')) == 'invalid input'
-
-    def test_on_expressions(self):
-        for element in expressions:
-            assert humanize(element['exp'], element['is_solve']) == element['result']
+	
+def test_on_expressions():
+	for element in expressions:
+		assert humanize(element['exp'], element['is_solve']) == element['result']
