@@ -10,17 +10,17 @@ accepted_digits = tuple(map(str, range(10)))
 skipped_chars = (' ', '\n', '\t', '\r')
 
 digit_name_map = ((
-    '', ' one', ' two', ' three',  ' four', ' five', ' six', ' seven',
-    ' eight', ' nine'
-),
-(
-    ' ten', ' eleven', ' twelve', ' thirteen', ' fourteen', ' fifteen',
-    ' sixteen', ' seventeen', ' eighteen', ' nineteen'
-),
-(
-    '', '', ' twenty', ' thirty', ' forty', ' fifty', ' sixty', ' seventy',
-    ' eighty', ' ninety'
-))
+        '', ' one', ' two', ' three',  ' four', ' five', ' six', ' seven',
+        ' eight', ' nine'
+    ),
+    (
+        ' ten', ' eleven', ' twelve', ' thirteen', ' fourteen', ' fifteen',
+        ' sixteen', ' seventeen', ' eighteen', ' nineteen'
+    ),
+    (
+        '', '', ' twenty', ' thirty', ' forty', ' fifty', ' sixty', ' seventy',
+        ' eighty', ' ninety'
+    ))
 
 # exponent_text = ' ten to the'
 failed_validation_text = 'invalid input'
@@ -120,6 +120,7 @@ def humanize(input_string, is_solve_expression=False):
     if not expression_validate(input_string, is_solve_expression):
         return failed_validation_text
 
+    # Разделяет строку на числа и операнды
     chunks_list = []
     chunk_buffer = ''
     previous_char = ''
@@ -136,11 +137,15 @@ def humanize(input_string, is_solve_expression=False):
                 chunks_list.append(chunk_buffer)
             previous_char = char
 
+    # Обрабатывает каждое число и операнд, полученные в предыдущем блоке for
     out_str = ''
     for element in chunks_list:
         if element == accepted_chars[4] and is_solve_expression:
             splitted_str = input_string.split(accepted_chars[4])
-            exp_solve = eval(splitted_str[0])
+            str_for_evaluating = filter(lambda s: s and not s.isspace(), splitted_str[0])
+            str_for_evaluating = ''.join(str_for_evaluating)
+            print(str_for_evaluating)
+            exp_solve = eval(str_for_evaluating)
             exp_solve = humanize_chunk(str(exp_solve))
             out_str = out_str + accepted_char_names[4] + exp_solve
             return out_str.strip()
