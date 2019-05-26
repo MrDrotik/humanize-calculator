@@ -8,7 +8,7 @@ def input_loop():
         user_input = input()
         if user_input == 'exit' or user_input == 'quit':
             break
-        print(humanize(user_input), is_solve_expression)
+        print(humanize(user_input, is_solve_expression))
 
 
 if __name__ == '__main__':
