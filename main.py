@@ -1,9 +1,6 @@
 
 from latin_assembler import assemble_number_name
 
-# Надеюсь мой код будет легко читать. Я оставил комментарии в
-# потенциально сложных для понимания местах.
-
 accepted_char_names = (' plus', ' minus', ' multiply by', ' divide by', ' equals')
 accepted_chars = ('+', '-', '*', '/', '=')
 accepted_digits = tuple(map(str, range(10)))
