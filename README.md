@@ -4,7 +4,7 @@ Variant 1, task 2<br/><br/>
 ## Clone humanizer: 
     $ git clone https://github.com/MrDrotik/humanize-calculator
 ## Run pytest:
-    $ pytest -v --pdb humanize-calculator/
+    $ pytest -v humanize-calculator/
 ## Run app:
     $ python3 humanize-calculator/run.py [-s] your_expression
 ### or
